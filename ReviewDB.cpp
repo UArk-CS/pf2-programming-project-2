@@ -7,6 +7,7 @@
 
 // Constructor
 ReviewDB::ReviewDB() {
+    Next = NULL;
     numOfReviews = 0;
 }
 
@@ -16,16 +17,16 @@ ReviewDB::~ReviewDB() {}
 // Inserts review into array if it is not full
 void ReviewDB::insertReview(ReviewNode &review_) {
 
-    if (numOfReviews < MAX_REVIEWDB_SIZE) {
-
-        reviews[numOfReviews] = review_;
-        numOfReviews++;
-
-    } else {
-
-        cout << "Sorry! Ben's Foodie ReviewNode database is full! Whoops..." << endl;
-
-    }
+//    if (numOfReviews < MAX_REVIEWDB_SIZE) {
+//
+//        reviews[numOfReviews] = review_;
+//        numOfReviews++;
+//
+//    } else {
+//
+//        cout << "Sorry! Ben's Foodie ReviewNode database is full! Whoops..." << endl;
+//
+//    }
 
 
 }
@@ -33,40 +34,40 @@ void ReviewDB::insertReview(ReviewNode &review_) {
 // Prints all reviews with the specified restaurant
 void ReviewDB::printRestaurantReviews(const string &restaurant) const {
 
-    for (int i = 0; i < MAX_REVIEWDB_SIZE; i++) {
-
-        if (reviews[i].getRestaurantName() == restaurant) {
-
-            reviews[i].print();
-            cout << endl;
-
-        }
-
-    }
+//    for (int i = 0; i < MAX_REVIEWDB_SIZE; i++) {
+//
+//        if (reviews[i].getRestaurantName() == restaurant) {
+//
+//            reviews[i].print();
+//            cout << endl;
+//
+//        }
+//
+//    }
 
 }
 
 // Prints all reviews with the specified food category
 void ReviewDB::printCategoryReviews(const string &category) const {
 
-    for (int i = 0; i < MAX_REVIEWDB_SIZE; i++) {
-
-        if (reviews[i].getFoodCategory() == category) {
-
-            reviews[i].print();
-            cout << endl;
-
-        }
-
-    }
+//    for (int i = 0; i < MAX_REVIEWDB_SIZE; i++) {
+//
+//        if (reviews[i].getFoodCategory() == category) {
+//
+//            reviews[i].print();
+//            cout << endl;
+//
+//        }
+//
+//    }
 
 }
 
 // Prints the most recent review
 void ReviewDB::printRecentReview() const {
 
-    reviews[numOfReviews - 1].print();
-    cout << endl;
+//    reviews[numOfReviews - 1].print();
+//    cout << endl;
 
 }
 
@@ -100,10 +101,10 @@ void ReviewDB::test() {
     test4.setFoodQualityRating(6);
     test4.setOverallSatisfactionRating(7);
 
-    testArray.reviews[0] = test1;
-    testArray.reviews[1] = test2;
-    testArray.reviews[2] = test3;
-    testArray.reviews[3] = test4;
+//    testArray.reviews[0] = test1;
+//    testArray.reviews[1] = test2;
+//    testArray.reviews[2] = test3;
+//    testArray.reviews[3] = test4;
 
     cout << "Reviews for Tropical Smoothie..." << endl;
     testArray.printRestaurantReviews("Tropical Smoothie");

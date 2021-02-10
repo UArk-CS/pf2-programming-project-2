@@ -10,8 +10,6 @@
 #include "ReviewNode.h"
 using namespace std;
 
-int const MAX_REVIEWDB_SIZE = 10;
-
 class ReviewDB {
 
 public:
@@ -30,7 +28,7 @@ public:
     static void test();
 
 private:
-    ReviewNode reviews[MAX_REVIEWDB_SIZE];
+    ReviewNode *Next;
     int numOfReviews;
 
 };
