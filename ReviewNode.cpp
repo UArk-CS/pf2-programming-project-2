@@ -16,6 +16,7 @@ ReviewNode::ReviewNode() {
     deliveryTimeRating = 0;
     foodQualityRating = 0;
     overallSatisfactionRating = 0;
+    Next = NULL;
 
 }
 
@@ -29,6 +30,7 @@ ReviewNode::ReviewNode(const ReviewNode &copy) {
     deliveryTimeRating = copy.deliveryTimeRating;
     foodQualityRating = copy.foodQualityRating;
     overallSatisfactionRating = copy.overallSatisfactionRating;
+    Next = NULL;
 
 }
 

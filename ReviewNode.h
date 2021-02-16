@@ -53,7 +53,7 @@ private:
     int deliveryTimeRating;
     int foodQualityRating;
     int overallSatisfactionRating;
-
+    ReviewNode *Next;
 };
 
 #endif //PF2_PROGRAMMING_PROJECT_2_REVIEWNODE_H

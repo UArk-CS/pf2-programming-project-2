@@ -7,8 +7,9 @@
 
 // Constructor
 ReviewDB::ReviewDB() {
-    Next = NULL;
     numOfReviews = 0;
+    Head = NULL;
+    Temp = NULL;
 }
 
 // Destructor

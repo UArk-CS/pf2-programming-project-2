@@ -28,9 +28,9 @@ public:
     static void test();
 
 private:
-    ReviewNode *Next;
     int numOfReviews;
-
+    ReviewDB *Head;
+    ReviewDB *Temp;
 };
 
 #endif //PF2_PROGRAMMING_PROJECT_2_REVIEWDB_H
