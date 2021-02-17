@@ -30,7 +30,7 @@ ReviewNode::ReviewNode(const ReviewNode &copy) {
     deliveryTimeRating = copy.deliveryTimeRating;
     foodQualityRating = copy.foodQualityRating;
     overallSatisfactionRating = copy.overallSatisfactionRating;
-    Next = NULL;
+    Next = copy.Next;
 
 }
 
@@ -94,7 +94,15 @@ void ReviewNode::setOverallSatisfactionRating(int overallSatisfactionRating_) {
     ReviewNode::overallSatisfactionRating = overallSatisfactionRating_;
 }
 
-// Print method
+ReviewNode *ReviewNode::getNext() const {
+    return Next;
+}
+
+void ReviewNode::setNext(ReviewNode *next_) {
+    Next = next_;
+}
+
+// TODO - Redo to work with linked list
 void ReviewNode::print() const {
 
     cout << fixed << setprecision(2);
@@ -109,7 +117,7 @@ void ReviewNode::print() const {
 
 }
 
-// Test method
+// TODO - Redo to work with linked list
 void ReviewNode::test() {
 
     ReviewNode test1;

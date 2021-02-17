@@ -39,6 +39,9 @@ public:
     int getOverallSatisfactionRating() const;
     void setOverallSatisfactionRating(int overallSatisfactionRating_);
 
+    ReviewNode *getNext() const;
+    void setNext(ReviewNode *next_);
+
     // Print
     void print() const;
 

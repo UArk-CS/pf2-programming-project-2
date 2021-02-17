@@ -16,6 +16,7 @@ ReviewDB::ReviewDB() {
 ReviewDB::~ReviewDB() {}
 
 // Inserts review into array if it is not full
+// TODO - Redo to insert into linked list, not array
 void ReviewDB::insertReview(ReviewNode &review_) {
 
 //    if (numOfReviews < MAX_REVIEWDB_SIZE) {
@@ -33,6 +34,7 @@ void ReviewDB::insertReview(ReviewNode &review_) {
 }
 
 // Prints all reviews with the specified restaurant
+// TODO - Redo to loop through linked list and print
 void ReviewDB::printRestaurantReviews(const string &restaurant) const {
 
 //    for (int i = 0; i < MAX_REVIEWDB_SIZE; i++) {
@@ -49,6 +51,7 @@ void ReviewDB::printRestaurantReviews(const string &restaurant) const {
 }
 
 // Prints all reviews with the specified food category
+// TODO - Redo to loop through linked list and print
 void ReviewDB::printCategoryReviews(const string &category) const {
 
 //    for (int i = 0; i < MAX_REVIEWDB_SIZE; i++) {
@@ -65,6 +68,7 @@ void ReviewDB::printCategoryReviews(const string &category) const {
 }
 
 // Prints the most recent review
+// TODO - Redo to loop through linked linked list and print N most recent review(s)
 void ReviewDB::printRecentReview() const {
 
 //    reviews[numOfReviews - 1].print();
@@ -73,6 +77,7 @@ void ReviewDB::printRecentReview() const {
 }
 
 // Test method
+// TODO - Redo to work with linked list
 void ReviewDB::test() {
 
     ReviewDB testArray;

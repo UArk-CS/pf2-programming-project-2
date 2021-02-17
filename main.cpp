@@ -116,6 +116,7 @@ void commandMenu(int &menuChoice) {
 }
 
 // Gets user input and creates full Review object to pass into ReviewDB object
+// TODO - Redo to insert Review into linked list
 void createNewReview(ReviewDB &foodieReviews) {
 
     string reviewerName;
