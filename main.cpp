@@ -62,7 +62,8 @@ int main() {
                 int nReviews;
                 cout << "How many recent reviews would you like to print? > ";
                 cin >> nReviews;
-                cout << nReviews << " Most Recent Reviews" << endl;
+                cout << endl;
+                cout << nReviews << " Most Recent Reviews\n" << endl;
                 foodieReviews.printRecentReview(nReviews);
                 break;
             case 5:

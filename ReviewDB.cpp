@@ -110,6 +110,7 @@ void ReviewDB::printRecentReview(const int &numToPrint) const {
     for (int i = 0; i < numToPrint; i++) {
 
         printer->print();
+        printer = printer->getNext();
 
     }
 

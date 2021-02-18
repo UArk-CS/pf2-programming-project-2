@@ -114,6 +114,7 @@ void ReviewNode::print() const {
     cout << "Delivery Time Rating: " << deliveryTimeRating << endl;
     cout << "Food Quality Rating: " << foodQualityRating << endl;
     cout << "Overall Satisfaction Rating: " << overallSatisfactionRating << endl;
+    cout << endl;
 
 }
 
