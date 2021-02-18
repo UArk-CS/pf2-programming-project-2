@@ -10,7 +10,7 @@ using namespace std;
 
 // Function declarations
 void commandMenu(int &menuChoice);
-void createNewReview(ReviewDB foodieReviews);
+void createNewReview(ReviewDB &foodieReviews);
 void getSearchParameter(string &searchParam);
 
 int main() {
@@ -121,7 +121,7 @@ void commandMenu(int &menuChoice) {
 }
 
 // Gets user input and creates full Review object to pass into ReviewDB object
-void createNewReview(ReviewDB foodieReviews) {
+void createNewReview(ReviewDB &foodieReviews) {
 
     string reviewerName;
     string restaurantName;
