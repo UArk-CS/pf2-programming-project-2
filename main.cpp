@@ -59,7 +59,11 @@ int main() {
                 break;
             case 4:
                 // Print recent reviews
-                foodieReviews.printRecentReview();
+                int nReviews;
+                cout << "How many recent reviews would you like to print? > ";
+                cin >> nReviews;
+                cout << nReviews << " Most Recent Reviews" << endl;
+                foodieReviews.printRecentReview(nReviews);
                 break;
             case 5:
                 // Test Review Class
@@ -127,7 +131,7 @@ void createNewReview(ReviewDB &foodieReviews) {
     int overallSatisfactionRating = 0;
     float deliveryCost = 0.0;
 
-    ReviewNode review;
+    ReviewNode *newReview = new ReviewNode();
 
     cout << "New Review:" << endl;
 
@@ -137,17 +141,17 @@ void createNewReview(ReviewDB &foodieReviews) {
     cout << "\tYour name: > ";
     getline(cin, reviewerName);
     transform(reviewerName.begin(), reviewerName.end(), reviewerName.begin(), ::toupper);
-    review.setReviewerName(reviewerName);
+    newReview->setReviewerName(reviewerName);
 
     cout << "\tRestaurant Name: > ";
     getline(cin, restaurantName);
     transform(restaurantName.begin(), restaurantName.end(), restaurantName.begin(), ::toupper);
-    review.setRestaurantName(restaurantName);
+    newReview->setRestaurantName(restaurantName);
 
     cout << "\tFood Category: > ";
     getline(cin, foodCategory);
     transform(foodCategory.begin(), foodCategory.end(), foodCategory.begin(), ::toupper);
-    review.setFoodCategory(foodCategory);
+    newReview->setFoodCategory(foodCategory);
 
     cout << "\tDelivery Cost: > $";
     cin >> deliveryCost;
@@ -158,7 +162,7 @@ void createNewReview(ReviewDB &foodieReviews) {
         cin >> deliveryCost;
 
     }
-    review.setDeliveryCost(deliveryCost);
+    newReview->setDeliveryCost(deliveryCost);
 
     cout << "\tDelivery Time Rating (1-10): > ";
     cin >> deliveryTimeRating;
@@ -169,7 +173,7 @@ void createNewReview(ReviewDB &foodieReviews) {
         cin >> deliveryTimeRating;
 
     }
-    review.setDeliveryTimeRating(deliveryTimeRating);
+    newReview->setDeliveryTimeRating(deliveryTimeRating);
 
     cout << "\tFood Quality Rating (1-10): > ";
     cin >> foodQualityRating;
@@ -180,7 +184,7 @@ void createNewReview(ReviewDB &foodieReviews) {
         cin >> foodQualityRating;
 
     }
-    review.setFoodQualityRating(foodQualityRating);
+    newReview->setFoodQualityRating(foodQualityRating);
 
     cout << "\tOverall Satisfaction (1-10): > ";
     cin >> overallSatisfactionRating;
@@ -191,10 +195,10 @@ void createNewReview(ReviewDB &foodieReviews) {
         cin >> overallSatisfactionRating;
 
     }
-    review.setOverallSatisfactionRating(overallSatisfactionRating);
+    newReview->setOverallSatisfactionRating(overallSatisfactionRating);
     cout << endl;
 
-    foodieReviews.insertReview(review);
+    foodieReviews.insertReview(newReview);
 
 }
 
