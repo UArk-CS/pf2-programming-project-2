@@ -12,24 +12,50 @@ ReviewDB::ReviewDB() {
     Temp = NULL;
 }
 
+ReviewDB::ReviewDB(const ReviewDB &copyDB) {
+
+    ReviewNode *copy = new ReviewNode();
+    Head = copy;
+
+    ReviewNode *temp = copyDB.Head;
+    while (temp != NULL) {
+
+        copy->setNext(new ReviewNode());
+        copy = copy->getNext();
+        copy->setReviewerName(temp->getReviewerName());
+        copy->setRestaurantName(temp->getRestaurantName());
+        copy->setFoodCategory(temp->getFoodCategory());
+        copy->setDeliveryCost(temp->getDeliveryCost());
+        copy->setDeliveryTimeRating(temp->getDeliveryTimeRating());
+        copy->setFoodQualityRating(temp->getFoodQualityRating());
+        copy->setOverallSatisfactionRating(temp->getOverallSatisfactionRating());
+        copy->setNext(NULL);
+        temp = temp->getNext();
+
+    }
+
+    copy = Head;
+    Head = copy->getNext();
+    delete copy;
+
+}
+
 // Destructor
 ReviewDB::~ReviewDB() {}
 
 // Inserts review into array if it is not full
 // TODO - Redo to insert into linked list, not array
-void ReviewDB::insertReview(ReviewNode &review_) {
+void ReviewDB::insertReview(ReviewNode *newReview_) {
 
-//    if (numOfReviews < MAX_REVIEWDB_SIZE) {
-//
-//        reviews[numOfReviews] = review_;
-//        numOfReviews++;
-//
-//    } else {
-//
-//        cout << "Sorry! Ben's Foodie ReviewNode database is full! Whoops..." << endl;
-//
-//    }
+    if (Head != NULL) {
+        Temp = newReview_;
+        newReview_->setNext(Head);
+        Head = Temp;
+    } else {
+        Head = newReview_;
+    }
 
+    numOfReviews++;
 
 }
 
@@ -37,16 +63,20 @@ void ReviewDB::insertReview(ReviewNode &review_) {
 // TODO - Redo to loop through linked list and print
 void ReviewDB::printRestaurantReviews(const string &restaurant) const {
 
-//    for (int i = 0; i < MAX_REVIEWDB_SIZE; i++) {
-//
-//        if (reviews[i].getRestaurantName() == restaurant) {
-//
-//            reviews[i].print();
-//            cout << endl;
-//
-//        }
-//
-//    }
+    ReviewNode *printer = Head;
+
+    for (int i = 0; i < numOfReviews; i++) {
+
+        if (printer->getRestaurantName() == restaurant) {
+
+            printer->print();
+            printer = printer->getNext();
+
+        } else {
+            printer = printer->getNext();
+        }
+
+    }
 
 }
 
@@ -54,25 +84,34 @@ void ReviewDB::printRestaurantReviews(const string &restaurant) const {
 // TODO - Redo to loop through linked list and print
 void ReviewDB::printCategoryReviews(const string &category) const {
 
-//    for (int i = 0; i < MAX_REVIEWDB_SIZE; i++) {
-//
-//        if (reviews[i].getFoodCategory() == category) {
-//
-//            reviews[i].print();
-//            cout << endl;
-//
-//        }
-//
-//    }
+    ReviewNode *printer = Head;
+
+    for (int i = 0; i < numOfReviews; i++) {
+
+        if (printer->getFoodCategory() == category) {
+
+            printer->print();
+            printer = printer->getNext();
+
+        } else {
+            printer = printer->getNext();
+        }
+
+    }
 
 }
 
 // Prints the most recent review
 // TODO - Redo to loop through linked linked list and print N most recent review(s)
-void ReviewDB::printRecentReview() const {
+void ReviewDB::printRecentReview(const int &numToPrint) const {
 
-//    reviews[numOfReviews - 1].print();
-//    cout << endl;
+    ReviewNode *printer = Head;
+
+    for (int i = 0; i < numToPrint; i++) {
+
+        printer->print();
+
+    }
 
 }
 

@@ -15,22 +15,23 @@ class ReviewDB {
 public:
     // Constructors and Destructor
     ReviewDB();
+    ReviewDB(const ReviewDB &copyDB);
     ~ReviewDB();
 
-    void insertReview(ReviewNode &review_);
+    void insertReview(ReviewNode *newReview_);
 
     // Print methods
     void printRestaurantReviews(const string &restaurant) const;
     void printCategoryReviews(const string &category) const;
-    void printRecentReview() const;
+    void printRecentReview(const int &numToPrint) const;
 
     // Test
     static void test();
 
 private:
     int numOfReviews;
-    ReviewDB *Head;
-    ReviewDB *Temp;
+    ReviewNode *Head;
+    ReviewNode *Temp;
 };
 
 #endif //PF2_PROGRAMMING_PROJECT_2_REVIEWDB_H
