@@ -21,16 +21,16 @@ ReviewNode::ReviewNode() {
 }
 
 // Copy Constructor
-ReviewNode::ReviewNode(const ReviewNode &copy) {
+ReviewNode::ReviewNode(const ReviewNode *copy) {
 
-    reviewerName = copy.reviewerName;
-    restaurantName = copy.restaurantName;
-    foodCategory = copy.foodCategory;
-    deliveryCost = copy.deliveryCost;
-    deliveryTimeRating = copy.deliveryTimeRating;
-    foodQualityRating = copy.foodQualityRating;
-    overallSatisfactionRating = copy.overallSatisfactionRating;
-    Next = copy.Next;
+    reviewerName = copy->reviewerName;
+    restaurantName = copy->restaurantName;
+    foodCategory = copy->foodCategory;
+    deliveryCost = copy->deliveryCost;
+    deliveryTimeRating = copy->deliveryTimeRating;
+    foodQualityRating = copy->foodQualityRating;
+    overallSatisfactionRating = copy->overallSatisfactionRating;
+    Next = copy->Next;
 
 }
 
@@ -102,7 +102,7 @@ void ReviewNode::setNext(ReviewNode *next_) {
     Next = next_;
 }
 
-// TODO - Redo to work with linked list
+// Print method
 void ReviewNode::print() const {
 
     cout << fixed << setprecision(2);
@@ -118,29 +118,29 @@ void ReviewNode::print() const {
 
 }
 
-// TODO - Redo to work with linked list
+// Test method
 void ReviewNode::test() {
 
-    ReviewNode test1;
-    test1.setReviewerName("Ben W");
-    test1.setRestaurantName("Taco Bell");
-    test1.setFoodCategory("Mexican");
-    test1.setDeliveryCost(3.4);
-    test1.setDeliveryTimeRating(7);
-    test1.setFoodQualityRating(7);
-    test1.setOverallSatisfactionRating(8);
-    test1.print();
+    ReviewNode *test1 = new ReviewNode();
+    test1->setReviewerName("Ben W");
+    test1->setRestaurantName("Taco Bell");
+    test1->setFoodCategory("Mexican");
+    test1->setDeliveryCost(3.4);
+    test1->setDeliveryTimeRating(7);
+    test1->setFoodQualityRating(7);
+    test1->setOverallSatisfactionRating(8);
+    test1->print();
     cout << endl;
 
-    ReviewNode test2(test1);
-    test2.setReviewerName("Josh G");
-    test2.setRestaurantName("Tropical Smoothie");
-    test2.setFoodCategory("Smoothie");
-    test2.print();
+    ReviewNode *test2(test1);
+    test2->setReviewerName("Josh G");
+    test2->setRestaurantName("Tropical Smoothie");
+    test2->setFoodCategory("Smoothie");
+    test2->print();
     cout << endl;
 
-    cout << "test1 Delivery Cost: $" << test1.getDeliveryCost() << endl;
-    cout << "test2 Reviewer Name: " << test2.getReviewerName() << endl;
+    cout << "test1 Delivery Cost: $" << test1->getDeliveryCost() << endl;
+    cout << "test2 Reviewer Name: " << test2->getReviewerName() << endl;
     cout << endl;
 
 }

@@ -15,7 +15,7 @@ class ReviewDB {
 public:
     // Constructors and Destructor
     ReviewDB();
-    ReviewDB(const ReviewDB &copyDB);
+    ReviewDB(const ReviewDB *copyDB);
     ~ReviewDB();
 
     void insertReview(ReviewNode *newReview_);

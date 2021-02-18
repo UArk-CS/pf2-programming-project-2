@@ -14,7 +14,7 @@ class ReviewNode {
 public:
     // Constructors and Destructor
     ReviewNode();
-    ReviewNode(const ReviewNode &copy);
+    ReviewNode(const ReviewNode *copy);
     ~ReviewNode();
 
     // Getters and Setters

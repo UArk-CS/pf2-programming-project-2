@@ -12,12 +12,12 @@ ReviewDB::ReviewDB() {
     Temp = NULL;
 }
 
-ReviewDB::ReviewDB(const ReviewDB &copyDB) {
+ReviewDB::ReviewDB(const ReviewDB *copyDB) {
 
     ReviewNode *copy = new ReviewNode();
     Head = copy;
 
-    ReviewNode *temp = copyDB.Head;
+    ReviewNode *temp = copyDB->Head;
     while (temp != NULL) {
 
         copy->setNext(new ReviewNode());
@@ -43,8 +43,7 @@ ReviewDB::ReviewDB(const ReviewDB &copyDB) {
 // Destructor
 ReviewDB::~ReviewDB() {}
 
-// Inserts review into array if it is not full
-// TODO - Redo to insert into linked list, not array
+// Inserts review into the linked list
 void ReviewDB::insertReview(ReviewNode *newReview_) {
 
     if (Head != NULL) {
@@ -60,7 +59,6 @@ void ReviewDB::insertReview(ReviewNode *newReview_) {
 }
 
 // Prints all reviews with the specified restaurant
-// TODO - Redo to loop through linked list and print
 void ReviewDB::printRestaurantReviews(const string &restaurant) const {
 
     ReviewNode *printer = Head;
@@ -81,7 +79,6 @@ void ReviewDB::printRestaurantReviews(const string &restaurant) const {
 }
 
 // Prints all reviews with the specified food category
-// TODO - Redo to loop through linked list and print
 void ReviewDB::printCategoryReviews(const string &category) const {
 
     ReviewNode *printer = Head;
@@ -101,8 +98,7 @@ void ReviewDB::printCategoryReviews(const string &category) const {
 
 }
 
-// Prints the most recent review
-// TODO - Redo to loop through linked linked list and print N most recent review(s)
+// Prints the n most recent review(s)
 void ReviewDB::printRecentReview(const int &numToPrint) const {
 
     ReviewNode *printer = Head;
@@ -117,47 +113,56 @@ void ReviewDB::printRecentReview(const int &numToPrint) const {
 }
 
 // Test method
-// TODO - Redo to work with linked list
 void ReviewDB::test() {
 
-    ReviewDB testArray;
+    ReviewDB testLinkedList;
 
-    ReviewNode test1;
-    test1.setReviewerName("Ben W");
-    test1.setRestaurantName("Taco Bell");
-    test1.setFoodCategory("Mexican");
-    test1.setDeliveryCost(3.4);
-    test1.setDeliveryTimeRating(7);
-    test1.setFoodQualityRating(7);
-    test1.setOverallSatisfactionRating(8);
+    ReviewNode *test1 = new ReviewNode();
+    test1->setReviewerName("Ben W");
+    test1->setRestaurantName("Taco Bell");
+    test1->setFoodCategory("Mexican");
+    test1->setDeliveryCost(3.4);
+    test1->setDeliveryTimeRating(7);
+    test1->setFoodQualityRating(7);
+    test1->setOverallSatisfactionRating(8);
+    testLinkedList.insertReview(test1);
 
-    ReviewNode test2(test1);
-    test2.setReviewerName("Josh G");
-    test2.setRestaurantName("Tropical Smoothie");
-    test2.setFoodCategory("Smoothie");
-    test2.setDeliveryCost(5.0);
-    test2.setOverallSatisfactionRating(10);
+    ReviewNode *test2 = new ReviewNode();
+    test2->setReviewerName("Josh G");
+    test2->setRestaurantName("Tropical Smoothie");
+    test2->setFoodCategory("Smoothie");
+    test2->setDeliveryCost(5.0);
+    test2->setDeliveryTimeRating(7);
+    test2->setFoodQualityRating(9);
+    test2->setOverallSatisfactionRating(10);
+    testLinkedList.insertReview(test2);
 
-    ReviewNode test3(test2);
-    test3.setReviewerName("Jackson D");
-    test3.setDeliveryTimeRating(8);
+    ReviewNode *test3 = new ReviewNode();
+    test3->setReviewerName("Jackson D");
+    test3->setRestaurantName("Tropical Smoothie");
+    test3->setFoodCategory("Smoothie");
+    test3->setDeliveryCost(5.0);
+    test3->setDeliveryTimeRating(8);
+    test3->setFoodQualityRating(7);
+    test3->setOverallSatisfactionRating(8);
+    testLinkedList.insertReview(test3);
 
-    ReviewNode test4(test1);
-    test4.setReviewerName("Jackson P");
-    test4.setFoodQualityRating(6);
-    test4.setOverallSatisfactionRating(7);
-
-//    testArray.reviews[0] = test1;
-//    testArray.reviews[1] = test2;
-//    testArray.reviews[2] = test3;
-//    testArray.reviews[3] = test4;
+    ReviewNode *test4 = new ReviewNode();
+    test4->setReviewerName("Jackson P");
+    test4->setRestaurantName("Taco Bell");
+    test4->setFoodCategory("Mexican");
+    test4->setDeliveryCost(3.4);
+    test4->setDeliveryTimeRating(8);
+    test4->setFoodQualityRating(6);
+    test4->setOverallSatisfactionRating(7);
+    testLinkedList.insertReview(test4);
 
     cout << "Reviews for Tropical Smoothie..." << endl;
-    testArray.printRestaurantReviews("Tropical Smoothie");
+    testLinkedList.printRestaurantReviews("Tropical Smoothie");
     cout << endl;
 
     cout << "Reviews for Mexican food..." << endl;
-    testArray.printCategoryReviews("Mexican");
+    testLinkedList.printCategoryReviews("Mexican");
     cout << endl;
 
 
